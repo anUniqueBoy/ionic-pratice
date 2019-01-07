@@ -9,6 +9,7 @@ import { ChatPage } from '../pages/chat/chat';
 import { NotificationPage } from '../pages/notification/notification';
 import { MorePage } from '../pages/more/more';
 import { TabsPage } from '../pages/tabs/tabs';
+import { LoginPage } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -22,7 +23,8 @@ import { RestProvider } from '../providers/rest/rest';
     ChatPage,
     NotificationPage,
     MorePage,
-    TabsPage
+    TabsPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { RestProvider } from '../providers/rest/rest';
     ChatPage,
     NotificationPage,
     MorePage,
-    TabsPage
+    TabsPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
