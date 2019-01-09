@@ -1,7 +1,15 @@
 import { Loading, LoadingController, Toast, ToastController, Alert, AlertController } from 'ionic-angular';
+
+/**
+ * ui层的所有公共组件
+ * limiaomiao
+ * @export
+ * @abstract
+ * @class BaseUI
+ */
 export abstract class BaseUI {
     constructor(){}
-
+    
     //loading
     protected showLoading(loadingCtrl: LoadingController,
         message: string): Loading{
@@ -15,16 +23,16 @@ export abstract class BaseUI {
 
     //app底部提示消息
     protected showToast(toastCtrl: ToastController,
-        message: string): Toast{
-            let toast = toastCtrl.create({
-                message: message,
-                duration: 3000,
-                cssClass: 'bottom-toast',
-                position: 'bottom'
-            });
-            toast.present();
-            return toast;
-    }
+      message: string): Toast{
+          let toast = toastCtrl.create({
+              message: message,
+              duration: 3000,
+              cssClass: 'bottom-toast',
+              position: 'bottom'
+          });
+          toast.present();
+          return toast;
+  }
 
     //登录注册中央提示消息
     protected showAuthToast(toastCtrl: ToastController,

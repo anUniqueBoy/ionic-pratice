@@ -16,7 +16,48 @@ export class RestProvider {
   constructor(public http: Http) {
     // console.log('Hello RestProvider Provider');
   }
+
+  //feed
+  private apiUrlFeeds = 'https://imoocqa.gugujiankong.com/api/feeds/get';
+
+  //account
+  private apiUrlRegister = 'https://imoocqa.gugujiankong.com/api/account/register';
+  private apiUrlLogin = 'https://imoocqa.gugujiankong.com/api/account/login';
+  private apiUrlUserInfo = 'https://imoocqa.gugujiankong.com/api/account/userinfo';
+  private apiUrlUpdateNickName = 'https://imoocqa.gugujiankong.com/api/account/updatenickname';
+
+  private apiGetUserQuestionList = "https://imoocqa.gugujiankong.com/api/account/getuserquestionlist";
+
+  //question
+  private apiUrlQuestionSave = 'https://imoocqa.gugujiankong.com/api/question/save';
+  private apiUrlQuestionList = 'https://imoocqa.gugujiankong.com/api/question/list?index=1&number=10';
+  private apiUrlGetQuestion = "https://imoocqa.gugujiankong.com/api/question/get";
+  private apiUrlGetQuestionWithUser = "https://imoocqa.gugujiankong.com/api/question/getwithuser";
+  private apiUrlAnswer = "https://imoocqa.gugujiankong.com/api/question/answer";
+  private apiUrlSaveFavourite = "https://imoocqa.gugujiankong.com/api/question/savefavourite";
+
+  //notification
+  private apiUrlUserNotifications = "https://imoocqa.gugujiankong.com/api/account/usernotifications";
+
+  login(mobile,password): Observable<string[]> {
+    return this.getUrlReturn(this.apiUrlLogin+"?mobile="+mobile+"&password="+password)
+  }
+
+  register(mobile,nickname,password): Observable<string[]> {
+    return this.getUrlReturn(this.apiUrlRegister+"?mobile="+mobile+"&nickname="+nickname+"&password="+password)
+  }
+
+  getUserInfo(userId): Observable<string[]> {
+    return this.getUrlReturn(this.apiUrlUserInfo+"?userid="+userId)
+  }
+
+  updateNickName(userId,nickname): Observable<string[]> {
+    return this.getUrlReturn(this.apiUrlUpdateNickName+"?userid="+userId+"&nickname="+nickname)
+  }
+
   
+
+
   /**
    * 全局获取http请求的方法
    * @limiaomiao
@@ -31,11 +72,28 @@ export class RestProvider {
       .catch(this.handleError);
   }
 
+  /**
+   * 处理接口返回的数据，处理成json格式
+   * @limiaomiao
+   * @private
+   * @param {Response} res
+   * @returns
+   * @memberof RestProvider
+   */
   private extractData(res: Response) {
     let body = res.json();
     return JSON.parse(body) || {};
   }
+  
 
+  /**
+   * 处理请求中的错误，考虑了各种情况的错误处理并在console.log中显示
+   * @limiaomiao
+   * @private
+   * @param {(Response|any)} error
+   * @returns
+   * @memberof RestProvider
+   */
   private handleError(error:Response|any){
     let errMsg:String;
     if(error instanceof Response){
