@@ -55,6 +55,14 @@ export class RestProvider {
     return this.getUrlReturn(this.apiUrlUpdateNickName+"?userid="+userId+"&nickname="+nickname)
   }
 
+  saveQuestion(userId,title,content): Observable<string[]> {
+    return this.getUrlReturn(this.apiUrlQuestionSave+"?userid="+userId+"&title="+title+"&content="+content)
+  }
+
+  getFeeds(): Observable<string[]> {
+    return this.getUrlReturn(this.apiUrlFeeds)
+  }
+
   
 
 

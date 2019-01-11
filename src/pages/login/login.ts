@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, LoadingController,ToastController } from 'ionic-angular';
-import {BaseUI} from '../../common/baseui';
+import {BaseUI} from '../../providers/BaseUI';
 import {RestProvider} from '../../providers/rest/rest';
 import {Storage} from '@ionic/storage';
 import {RegisterPage} from '../register/register';
@@ -46,7 +46,7 @@ export class LoginPage extends BaseUI{
           this.dismiss();
         }else{
           loading.dismiss();
-          // super.showToast(this.toastCtrl,f["StatusContent"]);
+          super.showToast(this.toastCtrl,f["StatusContent"]);
         }
       },
       error=>this.errorMessage=<any>error)

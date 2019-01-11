@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ViewController, LoadingController,
 import { BaseUI } from '../../common/baseui';
 import { RestProvider } from '../../providers/rest/rest';
 import { Storage } from '@ionic/storage';
+import { HeadfacePage } from '../headface/headface';
 /**
  * Generated class for the UserPage page.
  *
@@ -31,6 +32,7 @@ export class UserPage extends BaseUI  {
       super()
   }
 
+  // 页面加载后显示数据
   ionViewDidLoad() {
     this.storage.get('UserId').then((val) => {
       if (val != null) {
@@ -47,6 +49,7 @@ export class UserPage extends BaseUI  {
     });
   }
 
+  // 修改用户名
   updateNickName(){
     this.storage.get('UserId').then((val) => {
       if (val != null) {
@@ -67,10 +70,16 @@ export class UserPage extends BaseUI  {
       }
     });
   }
-  
+
+  // 退出登录
   logout(){
     this.storage.remove('UserId');
     this.viewCtrl.dismiss();
+  }
+
+  // 跳到修改头像页面
+  gotoHeadface(){
+    this.navCtrl.push(HeadfacePage)
   }
 
 }
