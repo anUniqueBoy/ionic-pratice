@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController, Tabs, ViewController, LoadingController, ToastController } from 'ionic-angular';
 import { QuestionPage } from '../question/question';
+import { DetailsPage } from "../details/details";
 import { BaseUI } from '../../providers/BaseUI';
 import { RestProvider } from '../../providers/rest/rest';
 import { Storage } from '@ionic/storage';
@@ -45,6 +46,7 @@ export class HomePage extends BaseUI {
     t.select(index)
   }
 
+  // 获取数据
   getFeeds() {
     var loading = super.showLoading(this.loadingCtrl, '加载中...');
     this.rest.getFeeds()
@@ -56,4 +58,8 @@ export class HomePage extends BaseUI {
         error => this.errorMessage = <any>error)
   }
 
+  // 跳到详情页面
+  gotoDetails(questionId){
+    this.navCtrl.push(DetailsPage,{id:questionId})
+  }
 }

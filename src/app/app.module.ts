@@ -14,7 +14,8 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { UserPage } from '../pages/user/user';
 import { HeadfacePage } from '../pages/headface/headface';
-import { QuestionPage } from '../pages/question/question'
+import { QuestionPage } from '../pages/question/question';
+import { DetailsPage } from '../pages/details/details';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -41,7 +42,8 @@ import {Camera} from '@ionic-native/camera';
     RegisterPage,
     UserPage,
     HeadfacePage,
-    QuestionPage
+    QuestionPage,
+    DetailsPage
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,8 @@ import {Camera} from '@ionic-native/camera';
     RegisterPage,
     UserPage,
     HeadfacePage,
-    QuestionPage
+    QuestionPage,
+    DetailsPage
   ],
   providers: [
     StatusBar,
