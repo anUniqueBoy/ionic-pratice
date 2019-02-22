@@ -35,7 +35,7 @@ export class DetailsPage extends BaseUI  {
   }
   
   loadQuestion(id){
-
+    var loading=super.showLoading(this.loadingCtrl,'加载中....');
   }
 
 }
